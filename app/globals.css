@@ -112,3 +112,27 @@
 .path-visual .path-edge { width: 9%; }
 .path-visual .collaborate-edge { justify-content: flex-end; }
 .path-visual .collaborate-node strong { margin-top: 22.5px; }
+
+/* Keep navigation visibly actionable before hover, including on small screens. */
+.nav nav { gap: 10px; }
+.nav nav > a { min-height: 44px; align-items: center; justify-content: center; padding: 10px 16px; border: 1px solid #3a4250; border-radius: 6px; background: #14171c; color: #e8eaed; transition: transform 200ms ease, border-color 200ms ease, background 200ms ease, box-shadow 200ms ease; }
+.nav nav > a::after { display: none; }
+.nav nav > a:hover, .nav nav > a:focus-visible { border-color: #ff6a33; background: #ff450012; box-shadow: 0 5px 20px #ff450018; }
+.nav .nav-cta { min-height: 44px; justify-content: center; padding: 10px 18px; border: 1px solid #ff4500; border-radius: 6px; background: #ff4500; color: #0b0d10; font-weight: 650; transition: transform 200ms ease, background 200ms ease; }
+.nav .nav-cta:hover, .nav .nav-cta:focus-visible { background: #ff6a33; color: #0b0d10; transform: translateY(-2px); }
+@media (max-width: 760px) {
+  .nav { height: auto; min-height: 80px; flex-wrap: wrap; gap: 16px; padding-top: 16px; padding-bottom: 16px; }
+  .nav nav { display: flex; order: 3; width: 100%; gap: 8px; }
+  .nav nav > a { flex: 1; padding: 10px 6px; white-space: nowrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav .nav-cta:hover, .nav .nav-cta:focus-visible { transform: none; }
+}
+.secondary, footer > a, .wordmark { min-height: 44px; }
+footer > a { display: inline-flex; align-items: center; }
+.graph-bottom button, .wireframe-pause { width: 44px; height: 44px; }
+@media (max-width: 360px) {
+  .cta-group { gap: 12px; }
+  .cta-group .primary { padding-left: 16px; padding-right: 16px; gap: 14px; }
+  .nav nav > a { font-size: 13px; padding-left: 4px; padding-right: 4px; }
+}
