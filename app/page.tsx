@@ -59,9 +59,25 @@ function Graph() {
     <div className="graph-bottom"><span>POSTS · COMMUNITIES · BRANDS · INTENT</span><div><span className="drag-hint">Drag to explore</span><button aria-label={paused?'Play graph animation':'Pause graph animation'} onClick={()=>setPaused(!paused)}>{paused?<Play size={15}/>:<Pause size={15}/>}</button></div></div>
   </div>;
 }
+function Fragments() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        el.classList.add('is-visible');
+        observer.disconnect();
+      }
+    }, { threshold: 0.5 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  return <div ref={ref} className="fragments" aria-hidden="true"><span>Search</span><i>↗</i><span>Tabs</span><i>↘</i><span>Notes</span><i>↗</i><span>Gut feel</span></div>;
+}
 function CTA(){return <a className="primary" href={APP}>Get access <ArrowUpRight size={17}/></a>;}
 export default function Home(){return <><a href="#main" className="skip">Skip to content</a><header className="nav"><a href="#" className="wordmark"><Network size={22}/>GoHook</a><nav aria-label="Main navigation"><a href="#product">Product</a><a href="#workflows">Workflows</a><a href="#how-it-works">How it works</a></nav><a className="nav-cta" href={APP}>Get access <ArrowUpRight size={15}/></a></header><main id="main"><section className="hero"><div className="hero-copy"><div className="hero-brand">GoHook</div><h1>Your knowledge graph<br/>for <span>Reddit.</span></h1><p>Map threads, intent, brands, and communities — then query<br className="desktop"/> the connections instead of hunting with search.</p><div className="cta-group"><CTA/><a className="secondary" href="#graph">See the graph <ArrowRight size={16}/></a></div></div><Graph/></section>
-<section className="section problem" id="problem"><div className="section-label"><span>01 / THE PROBLEM</span><span className="tiny-cross">+</span></div><div className="split"><h2>Reddit research<br/>is fragmented.</h2><div><p className="section-copy">Search, tabs, notes, gut feel — nothing connects.</p><div className="fragments" aria-hidden="true"><span>Search</span><i>↗</i><span>Tabs</span><i>↘</i><span>Notes</span><i>↗</i><span>Gut feel</span></div></div></div></section>
+<section className="section problem" id="problem"><div className="section-label"><span>01 / THE PROBLEM</span><span className="tiny-cross">+</span></div><div className="split"><h2>Reddit research<br/>is fragmented.</h2><div><p className="section-copy">Search, tabs, notes, gut feel — nothing connects.</p><Fragments/></div></div></section>
 <section className="section thesis" id="product"><div className="section-label"><span>02 / THE KNOWLEDGE GRAPH</span><span className="tiny-cross">+</span></div><div className="split"><h2>A graph<br/>you can query.</h2><p className="section-copy">Connect entities and relationships. Follow the connections to an answer — with a path you can trace.</p></div><div className="path-visual" aria-label="A subreddit connects to a thread, a brand, and an intent"><div><span className="path-dot"/><small>COMMUNITY</small><strong>Subreddit</strong></div><span className="path-edge">contains <ArrowRight size={16}/></span><div><span className="path-dot"/><small>CONVERSATION</small><strong>Thread</strong></div><span className="path-edge">mentions <ArrowRight size={16}/></span><div><span className="path-dot"/><small>ENTITY</small><strong>Brand</strong></div><span className="path-edge">reveals <ArrowRight size={16}/></span><div><span className="path-dot active"/><small>SIGNAL</small><strong>Intent</strong></div></div></section>
 <section className="section workflows" id="workflows"><div className="section-label"><span>03 / GRAPH WORKFLOWS</span><span className="tiny-cross">+</span></div><h2>What you do in GoHook.</h2><div className="workflow-list">{[
 ['Comparison / intel','Trace how brands and alternatives connect across Reddit conversations.'],
