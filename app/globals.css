@@ -183,3 +183,10 @@ footer > a { display: inline-flex; align-items: center; }
 .connection-dot, .connection-pulse { animation: none; }
 .connection-pulse { left: calc(var(--travel, 0%) - 2.5px); }
 @media(max-width:900px) { .connection-pulse { left: -2px; top: calc(var(--travel, 0%) - 2.5px); } }
+
+.rolling-heading { width: fit-content; cursor: default; }
+.rolling-heading:focus-visible { outline: 2px solid #ff6a33; outline-offset: 8px; border-radius: 2px; }
+.rolling-line { display: block; white-space: nowrap; }
+.rolling-letter-window { display: inline-block; overflow: hidden; vertical-align: top; line-height: 1.12; }
+.rolling-letter { position: relative; display: block; }
+.rolling-letter-copy { position: absolute; left: 0; top: 100%; color: #ff6a33; }

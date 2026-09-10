@@ -4,6 +4,7 @@ import { ArrowUpRight, ArrowRight, Network, Pause, Play } from 'lucide-react';
 import WorkflowShowcase from './workflow-showcase';
 import ConnectionFlow from './connection-flow';
 import ExpandableSection from './expandable-section';
+import RollingHeading from './rolling-heading';
 const APP = 'https://redditscan.vercel.app';
 
 function Graph() {
@@ -80,7 +81,7 @@ function Fragments() {
 }
 function CTA(){return <a className="primary" href={APP}>Get access <ArrowUpRight size={17}/></a>;}
 export default function Home(){return <><a href="#main" className="skip">Skip to content</a><header className="nav"><a href="#" className="wordmark"><Network size={22}/>GoHook</a><nav aria-label="Main navigation"><a href="#product">Product</a><a href="#workflows">Workflows</a><a href="#how-it-works">How it works</a></nav><a className="nav-cta" href={APP}>Get access <ArrowUpRight size={15}/></a></header><main id="main"><section className="hero"><div className="hero-copy"><div className="hero-brand">GoHook</div><h1>Your knowledge graph<br/>for <span>Reddit.</span></h1><p>Map threads, intent, brands, and communities — then query<br className="desktop"/> the connections instead of hunting with search.</p><div className="cta-group"><CTA/><a className="secondary" href="#graph">See the graph <ArrowRight size={16}/></a></div></div><Graph/></section>
-<section className="section problem" id="problem"><ExpandableSection id="problem" label="01 / THE PROBLEM"><div className="split"><h2>Reddit research<br/>is fragmented.</h2><div><p className="section-copy">Search, tabs, notes, gut feel — nothing connects.</p><Fragments/></div></div></ExpandableSection></section>
+<section className="section problem" id="problem"><ExpandableSection id="problem" label="01 / THE PROBLEM"><div className="split"><RollingHeading/><div><p className="section-copy">Search, tabs, notes, gut feel — nothing connects.</p><Fragments/></div></div></ExpandableSection></section>
 <section className="section thesis" id="product"><ExpandableSection id="product" label="02 / THE KNOWLEDGE GRAPH"><div className="split"><h2>A graph<br/>you can query.</h2><p className="section-copy">Connect entities and relationships. Follow the connections to an answer — with a path you can trace.</p></div><ConnectionFlow/></ExpandableSection></section>
 <section className="section workflows" id="workflows"><ExpandableSection id="workflows" label="03 / GRAPH WORKFLOWS"><h2>What you do in GoHook.</h2><WorkflowShowcase/></ExpandableSection></section>
 <section className="section how" id="how-it-works"><ExpandableSection id="how-it-works" label="04 / HOW IT WORKS"><h2>Seed → map → query → act.</h2><div className="steps">{[['Seed','Start with a brand, topic, or community.'],['Map','Connect threads, entities, and intent.'],['Query → act','Ask a question. Trace the answer. Decide what to do next.']].map(([name,body],i)=><article key={name}><span className="step-number">0{i+1}</span><h3>{name}</h3><p>{body}</p></article>)}</div></ExpandableSection></section>
