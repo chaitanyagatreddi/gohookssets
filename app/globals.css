@@ -108,3 +108,7 @@
 @media (prefers-reduced-motion: reduce) {
   .workflow-option [data-slot=accordion-content] { animation: none; }
 }
+
+.path-visual .path-edge { width: 9%; }
+.path-visual .collaborate-edge { justify-content: flex-end; }
+.path-visual .collaborate-node strong { margin-top: 22.5px; }
