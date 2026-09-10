@@ -85,7 +85,7 @@ export default function WorkflowShowcase() {
   return <div className="workflow-showcase">
     <Accordion value={[active]} onValueChange={value=>{if(value.length) setActive(Number(value[0]));}} className="workflow-accordion">
       {workflows.map(([name,body],i)=><AccordionItem key={name} value={i} className="workflow-option">
-        <AccordionTrigger className="workflow-choice" onPointerEnter={e=>{if(e.pointerType==='mouse')setActive(i);}} onFocus={()=>setActive(i)}>
+        <AccordionTrigger className="workflow-choice" onPointerMove={e=>{if(e.pointerType==='mouse' && (e.movementX || e.movementY))setActive(i);}} onFocus={()=>setActive(i)}>
           <span className="workflow-choice-number">0{i+1}</span><span className="workflow-choice-name">{name}</span>
         </AccordionTrigger>
         <AccordionContent className="workflow-description"><p>{body}</p></AccordionContent>
