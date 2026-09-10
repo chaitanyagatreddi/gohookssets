@@ -31,3 +31,39 @@
   .fragments.is-visible span, .fragments.is-visible i { animation: none; }
   .fragments span:hover { translate: none; }
 }
+
+/* Navigation links lift without shifting the surrounding layout. */
+.nav nav > a {
+  position: relative;
+  display: inline-flex;
+  transition: transform 200ms ease, color 200ms ease, text-shadow 200ms ease;
+}
+.nav nav > a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -7px;
+  height: 1px;
+  background: #ff6a33;
+  transform: scaleX(.35);
+  opacity: 0;
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+.nav nav > a:focus-visible {
+  transform: translateY(-3px) scale(1.04);
+  color: #ff6a33;
+  text-shadow: 0 0 16px #ff450055;
+}
+.nav nav > a:focus-visible::after { transform: scaleX(1); opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .nav nav > a:hover {
+    transform: translateY(-3px) scale(1.04);
+    color: #ff6a33;
+    text-shadow: 0 0 16px #ff450055;
+  }
+  .nav nav > a:hover::after { transform: scaleX(1); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav nav > a:hover, .nav nav > a:focus-visible { transform: none; }
+}
