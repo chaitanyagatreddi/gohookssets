@@ -5,6 +5,7 @@ import WorkflowShowcase from './workflow-showcase';
 import ConnectionFlow from './connection-flow';
 import ExpandableSection from './expandable-section';
 import RollingHeading from './rolling-heading';
+import HowFlow from './how-flow';
 const APP = 'https://redditscan.vercel.app';
 
 function Graph() {
@@ -84,7 +85,7 @@ export default function Home(){return <><a href="#main" className="skip">Skip to
 <section className="section problem" id="problem"><ExpandableSection id="problem" label="01 / THE PROBLEM"><div className="split"><RollingHeading/><div><p className="section-copy">Search, tabs, notes, gut feel — nothing connects.</p><Fragments/></div></div></ExpandableSection></section>
 <section className="section thesis" id="product"><ExpandableSection id="product" label="02 / THE KNOWLEDGE GRAPH"><div className="split"><h2>A graph<br/>you can query.</h2><p className="section-copy">Connect entities and relationships. Follow the connections to an answer — with a path you can trace.</p></div><ConnectionFlow/></ExpandableSection></section>
 <section className="section workflows" id="workflows"><ExpandableSection id="workflows" label="03 / GRAPH WORKFLOWS"><h2>What you do in GoHook.</h2><WorkflowShowcase/></ExpandableSection></section>
-<section className="section how" id="how-it-works"><ExpandableSection id="how-it-works" label="04 / HOW IT WORKS"><h2>Seed → map → query → act.</h2><div className="steps">{[['Seed','Start with a brand, topic, or community.'],['Map','Connect threads, entities, and intent.'],['Query → act','Ask a question. Trace the answer. Decide what to do next.']].map(([name,body],i)=><article key={name}><span className="step-number">0{i+1}</span><h3>{name}</h3><p>{body}</p></article>)}</div></ExpandableSection></section>
+<section className="section how" id="how-it-works"><ExpandableSection id="how-it-works" label="04 / HOW IT WORKS"><h2>Seed → map → query → act.</h2><HowFlow/></ExpandableSection></section>
 <section className="section trust" id="trust"><ExpandableSection id="trust" label="05 / TRUST & SAFETY"><div className="split"><h2>Ban-aware<br/>by design.</h2><div><p className="section-copy">Subreddit rules. Controlled volume. Quality over spray.</p><p className="quiet">Keep the community’s context in every action.</p></div></div></ExpandableSection></section>
 <section className="section audience" id="audience"><ExpandableSection id="audience" label="06 / WHO IT’S FOR"><div className="split"><h2>From solo<br/>to agency.</h2><p className="section-copy">One knowledge graph for research, listening, and growth.</p></div><div className="audience-line"><span>Hobbyists</span><span>Freelancers</span><span>Startups</span><span>Agencies</span></div></ExpandableSection></section>
 <section className="final-cta" id="get-access"><Network size={36}/><h2>Start mapping<br/><span>Reddit.</span></h2><CTA/></section>

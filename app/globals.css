@@ -190,3 +190,30 @@ footer > a { display: inline-flex; align-items: center; }
 .rolling-letter-window { display: inline-block; overflow: hidden; vertical-align: top; line-height: 1.12; }
 .rolling-letter { position: relative; display: block; }
 .rolling-letter-copy { position: absolute; left: 0; top: 100%; color: #ff6a33; }
+
+/* Connected workflow path, using the same signal language as the knowledge graph. */
+.how-flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 64px; }
+.how-flow-step { min-width: 0; }
+.how-flow-track { display: flex; align-items: center; height: 46px; margin-bottom: 20px; }
+.how-flow-dot { width: 18px; height: 18px; flex: 0 0 18px; border: 3px solid #ff6a33; border-radius: 50%; background: #0b0d10; box-shadow: 0 0 0 9px #ff450010; }
+.how-flow-connector { position: relative; display: flex; align-items: center; width: calc(100% - 34px); height: 24px; margin-left: 16px; overflow: hidden; color: #ff6a33; }
+.how-flow-connector::before { content: ''; width: 100%; height: 1px; background: linear-gradient(90deg, #ff450055, #ff4500aa); }
+.how-flow-connector b { position: absolute; right: 0; top: -5px; font-size: 25px; line-height: 1; font-weight: 300; }
+.how-flow-connector i { position: absolute; left: 3%; width: 18%; height: 2px; border-radius: 2px; background: #ff6a33; box-shadow: 0 0 12px #ff4500; }
+.how-flow-step .step-number { display: block; margin-top: 8px; }
+.how-flow-step h3 { font-size: clamp(27px, 3vw, 38px); letter-spacing: -.04em; font-weight: 450; margin: 20px 0 13px; }
+.how-flow-step p { max-width: 300px; margin: 0; padding-right: 30px; color: #9aa4b2; font-size: 16px; line-height: 1.65; }
+@media (max-width: 760px) {
+  .how-flow { grid-template-columns: 1fr; margin-top: 40px; }
+  .how-flow-step { display: grid; grid-template-columns: 48px 1fr; padding-bottom: 32px; }
+  .how-flow-track { grid-row: 1 / span 3; grid-column: 1; width: 24px; height: 100%; min-height: 132px; margin: 0; flex-direction: column; }
+  .how-flow-connector { width: 24px; height: calc(100% - 28px); margin: 10px 0 0; flex-direction: column; }
+  .how-flow-connector::before { width: 1px; height: 100%; background: linear-gradient(180deg, #ff450055, #ff4500aa); }
+  .how-flow-connector b { right: auto; bottom: -1px; top: auto; rotate: 90deg; }
+  .how-flow-connector i { top: 3%; left: 11px; width: 2px; height: 18%; }
+  .how-flow-step .step-number, .how-flow-step h3, .how-flow-step p { grid-column: 2; }
+  .how-flow-step .step-number { margin: 0; }
+  .how-flow-step h3 { margin: 12px 0 8px; }
+  .how-flow-step p { padding-right: 0; }
+  .how-flow-step:last-child .how-flow-track { min-height: 60px; }
+}
