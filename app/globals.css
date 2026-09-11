@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
+.nav .wordmark{font-family:"SF Pro Display",-apple-system,BlinkMacSystemFont,var(--font-geist-sans),sans-serif;font-size:28px;font-weight:700;letter-spacing:-1.4px}
 @custom-variant dark (&:is(.dark *));
 @theme inline { --color-background:var(--background);--color-foreground:var(--foreground);--font-sans:var(--font-geist-sans);--color-primary:var(--primary);--color-border:var(--border); }
 :root,.dark{--background:#0b0d10;--foreground:#e8eaed;--card:#14171c;--card-foreground:#e8eaed;--popover:#14171c;--popover-foreground:#e8eaed;--primary:#ff4500;--primary-foreground:#0b0d10;--secondary:#14171c;--secondary-foreground:#e8eaed;--muted:#14171c;--muted-foreground:#9aa4b2;--accent:#ff6a33;--accent-foreground:#0b0d10;--border:#242a33;--input:#242a33;--ring:#ff6a33;--radius:.5rem;}
