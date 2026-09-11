@@ -6,6 +6,7 @@ import ConnectionFlow from './connection-flow';
 import ExpandableSection from './expandable-section';
 import RollingHeading from './rolling-heading';
 import HowFlow from './how-flow';
+import HeaderLogo, { HeroLogo } from './header-logo';
 const APP = 'https://redditscan.vercel.app';
 
 function Graph() {
@@ -81,7 +82,7 @@ function Fragments() {
   return <div ref={ref} className="fragments" aria-hidden="true"><span>Search</span><i>↗</i><span>Tabs</span><i>↘</i><span>Notes</span><i>↗</i><span>Gut feel</span></div>;
 }
 function CTA(){return <a className="primary" href={APP}>Get access <ArrowUpRight size={17}/></a>;}
-export default function Home(){return <><a href="#main" className="skip">Skip to content</a><header className="nav"><a href="#" className="wordmark"><Network size={22}/>GoHook</a><nav aria-label="Main navigation"><a href="#product">Product</a><a href="#workflows">Workflows</a><a href="#how-it-works">How it works</a></nav><a className="nav-cta" href={APP}>Get access <ArrowUpRight size={15}/></a></header><main id="main"><section className="hero"><div className="hero-copy"><div className="hero-brand">GoHook</div><h1>Your knowledge graph<br/>for <span>Reddit.</span></h1><p>Map threads, intent, brands, and communities — then query<br className="desktop"/> the connections instead of hunting with search.</p><div className="cta-group"><CTA/><a className="secondary" href="#graph">See the graph <ArrowRight size={16}/></a></div></div><Graph/></section>
+export default function Home(){return <><a href="#main" className="skip">Skip to content</a><header className="nav"><HeaderLogo/><nav aria-label="Main navigation"><a href="#product">Product</a><a href="#workflows">Workflows</a><a href="#how-it-works">How it works</a></nav><a className="nav-cta" href={APP}>Get access <ArrowUpRight size={15}/></a></header><main id="main"><section className="hero"><div className="hero-copy"><HeroLogo/><h1>Your knowledge graph<br/>for <span>Reddit.</span></h1><p>Map threads, intent, brands, and communities — then query<br className="desktop"/> the connections instead of hunting with search.</p><div className="cta-group"><CTA/><a className="secondary" href="#graph">See the graph <ArrowRight size={16}/></a></div></div><Graph/></section>
 <section className="section problem" id="problem"><ExpandableSection id="problem" label="01 / THE PROBLEM"><div className="split"><RollingHeading/><div><p className="section-copy">Search, tabs, notes, gut feel — nothing connects.</p><Fragments/></div></div></ExpandableSection></section>
 <section className="section thesis" id="product"><ExpandableSection id="product" label="02 / THE KNOWLEDGE GRAPH"><div className="split"><h2>A graph<br/>you can query.</h2><p className="section-copy">Connect entities and relationships. Follow the connections to an answer — with a path you can trace.</p></div><ConnectionFlow/></ExpandableSection></section>
 <section className="section workflows" id="workflows"><ExpandableSection id="workflows" label="03 / GRAPH WORKFLOWS"><h2>What you do in GoHook.</h2><WorkflowShowcase/></ExpandableSection></section>
